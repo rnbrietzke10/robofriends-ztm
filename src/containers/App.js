@@ -5,7 +5,7 @@ import Scroll from "../components/Scroll";
 import ErrorBoundary from "../components/ErrorBoundry";
 import "./App.css";
 
-const App = () => {
+function App() {
   const [robots, setRobots] = useState([]);
   const [searchField, setSearchField] = useState("");
 
@@ -15,7 +15,7 @@ const App = () => {
         return response.json();
       })
       .then(users => setRobots(users));
-  });
+  }, []);
   const onSearchChange = event => {
     setSearchField(event.target.value);
   };
@@ -36,5 +36,5 @@ const App = () => {
       </Scroll>
     </div>
   );
-};
+}
 export default App;
