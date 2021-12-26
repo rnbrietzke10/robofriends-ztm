@@ -1,15 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './containers/App';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
-import 'tachyons';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import App from "./containers/App";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import { searchRobots } from "./reducers";
+import "tachyons";
+
+const store = createStore(searchRobots);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
